@@ -1,0 +1,51 @@
+<div class="mytable">
+    <div class="container" style="float:right;width:15%;margin-bottom: 20px;margin-right: 10px;height: 20px;">
+        <div class="row">
+            <input type="text" name="search" [(ngModel)]="searchText" placeholder="Type Here...!!" style="padding:10px;float:right;font-size: 15px;border-radius: 20px;background-color: rgba(216, 240, 240, 0.884);color:black;font-weight: 900;border:2px black;padding-left: 15px;"  >
+        </div>
+       </div>
+<hr>
+<h1>Roles</h1>
+<hr>
+<table  style="text-align: center;padding-bottom: 10px;" class="table">
+    <thead  style="text-align: center;" class="table-info">
+        <tr>
+            <th style="text-align: center;">Role Name</th>
+            <th style="text-align: center;">Role Description</th>
+           
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let role of roles">
+            <td style="text-align: center;">{{role.roleName}}</td>
+            <td style="text-align: center;">{{role.roleDescription}}</td>
+        </tr>
+    </tbody>
+</table>
+<hr>
+<h1>Users Details</h1>
+<hr>
+<table class="table" style="text-align: center;padding-bottom: 10px;">
+    <thead >
+        <tr class="table-info">
+            <th style="text-align: center;">Full Name</th>
+            <th style="text-align: center;">Username</th>
+            <th style="text-align: center;">Role</th>
+            <th style="text-align: center;">Email</th>
+            <th style="text-align: center;">Phone Number</th>
+            <th style="text-align: center;">Delete</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let user of users |filter:searchText">
+            <td style="text-align: center;">{{user.userFirstName}}</td>
+            <td style="text-align: center;">{{user.userName}}</td>
+            <td style="text-align: center;">{{user.userLastName}}</td>
+            <td style="text-align: center;">{{user.email}}</td>
+            <td style="text-align: center;">{{user.phoneNumber}}</td>
+            <td style="text-align: center;" *ngIf="user.userLastName != 'Admin';else elsepart" (click)="deleteUser(user.userName)"  style="text-align: center;color: rgb(8, 127, 201);cursor: pointer;"><i class="fa fa-trash" style="font-size: 25px;"></i></td>
+            <ng-template #elsepart><td style="text-align: center; color: red;cursor: not-allowed;"><i class="fa fa-trash" style="font-size: 25px;"></i></td></ng-template>
+        </tr>
+    </tbody>
+</table>
+</div>

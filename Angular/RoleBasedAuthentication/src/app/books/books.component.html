@@ -1,0 +1,20 @@
+
+<div class="container mt-5">
+    <a href="#" routerLink="/books" class="btn btn-primary" style="float:right;margin:50x;">Back</a>
+    <div class="card" style="padding: 20px;width:50%;margin-left: 280px;">
+        <form  #BookForm="ngForm" (ngSubmit)="onsubmit(BookForm)">
+            <h4 style="text-align:center;color:rgb(4, 4, 83)"><u>Add New Book</u></h4>
+            <p *ngIf="errorStatus" style="text-align: center;margin-top: 5px; color: red;font-size: 20px;"><b>{{errorDescription}}</b></p>
+            <label style="font-size:20px;font-weight:500;padding-left:10px" >Book Name :<span style="color:red">*</span></label>
+            <input type="text" ngModel name="bookName" id="bookName" placeholder="Enter book name" class="form-control mb-3">
+            <label style="font-size:20px;font-weight:500;padding-left:10px" >Book Image In Url Format :<span style="color:red">*</span></label>
+            <input type="text" ngModel name="bookImage" id="bookImage" placeholder="Enter book image" class="form-control mb-3">
+            <label style="font-size:20px;font-weight:500;padding-left:10px" >Book Price :<span style="color:red">*</span></label>
+            <input type="text" ngModel name="bookRate" id="bookRate" placeholder="Enter book rate" class="form-control mb-3">
+            <label style="font-size:20px;font-weight:500;padding-left:10px" >Book Available :<span style="color:red">*</span></label>
+            <input type="text" ngModel name="bookAvailable" id="bookAvailable" placeholder="Enter book available" class="form-control mb-3">
+            <input type="text" ngModel name="user" id="user" hidden class="form-control mb-3">
+            <input type="submit" value="Add&nbsp;Product" class="form-control" style="background-color: black;color: white;">
+        </form>
+    </div>
+</div>

@@ -1,0 +1,25 @@
+
+<div class="container mt-5">
+    <a href="#" routerLink="/books" class="btn btn-primary" style="float:right;margin:50x;">Back</a>
+    <div class="card" style="padding: 20px;width:50%;margin-left: 280px;">
+       
+        <form #UpdateBookForm="ngForm" (ngSubmit)="BookNew(UpdateBookForm)">
+            <h4 style="text-align:center;color:rgb(4, 4, 83)"><u>Edit Book details</u></h4>
+            <p *ngIf="errorStatus" style="text-align: center;margin-top: 5px; color: red;"><b>{{errorDescription}}</b></p>
+<!--             
+            <label style="font-size:20px;font-weight:500;padding-left:10px" for="Id">Book Id :<span style="color:red">*</span></label>
+            <input type="hidden" [(ngModel)]="books.Id" name="id" id="Id" class="form-control mb-3" > -->
+
+            <label style="font-size:20px;font-weight:500;padding-left:10px" for="bookName">Book Name :<span style="color:red">*</span></label>
+            <input type="text"  [(ngModel)]="bookDetail.bookName" name="bookName" id="bookName"  class="form-control mb-3">
+
+            <label style="font-size:20px;font-weight:500;padding-left:10px" for="bookRate">Book Price :<span style="color:red">*</span></label>
+            <input type="text"  [(ngModel)]="bookDetail.bookRate" name="bookRate" id="bookRate" class="form-control mb-3">
+
+            <label style="font-size:20px;font-weight:500;padding-left:10px" for="bookAvailable">Book Available :<span style="color:red">*</span></label>
+            <input type="text"  [(ngModel)]="bookDetail.bookAvailable" name="bookAvailable" id="bookAvailable" class="form-control mb-3">
+
+            <input type="submit" value="Save" class="btn btn-warning form-control" [disabled]="!UpdateBookForm.valid"  >
+        </form>
+    </div>
+</div>

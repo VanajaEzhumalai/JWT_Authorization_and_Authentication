@@ -1,0 +1,30 @@
+
+ <div class="container mt-5" style="width:50%;margin-top: 200px;">
+    <div class="card" style="padding: 40px;">
+        <p *ngIf="errorStatus" style="color:red;font-size:20px;text-align:center;padding-top:10px">{{errorDescription}}</p> 
+        <form #loginForm="ngForm" (ngSubmit)="login(loginForm)" >
+            <h1 style="color:rgb(2, 2, 97);font-size:30px;text-align:center;padding-bottom:20px">Login Form</h1>
+            <h5 style="font-size:20px;font-weight:400">Username:<span style="color:red">*</span></h5>
+            <input type="text"
+            ngModel
+            name="userName"
+            id="userName"
+            placeholder="Enter your username"
+            class="form-control mb-3" style="margin-bottom:20px"
+            >
+            <h5 style="font-size:20px;font-weight:400">Password:<span style="color:red">*</span></h5>
+            <input type="password"
+            ngModel
+            name="userPassword"
+            id="userPassword"
+            placeholder="Enter your password"
+            class="form-control mb-3" style="margin-bottom:50px"
+            >
+
+            <input type="submit"
+            value="Login"
+            class="btn btn-outline-primary form-control rounded-0" style="margin-top:30px">
+            <p style="padding-left:190px;padding-top:20px;font-weight:bold">Don't have an account? <a  routerLink="/signup" style="margin-right:20px;color:red">Sign Up</a></p>
+        </form>
+    </div>
+</div>

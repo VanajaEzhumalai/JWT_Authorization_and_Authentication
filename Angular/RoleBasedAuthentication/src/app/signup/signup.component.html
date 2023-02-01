@@ -1,0 +1,24 @@
+<p *ngIf="errorStatus" style="text-align: center;margin-top: 5px; color: red;"><b>{{errorDescription}}</b></p>
+<div class="container mt-5" style="width:50%">
+    <div class="card" style="padding: 40px;">
+        <form #signupForm="ngForm" (ngSubmit)="signup(signupForm)">
+            <h1 style="color:rgb(2, 2, 96);font-size:30px;text-align:center;padding-bottom:20px"> Registration Form</h1>
+            <h5 style="font-size:20px;font-weight:400">Full Name:<span style="color:red">*</span></h5>
+            <input type="text" ngModel name="userFirstName" id="userFirstName" placeholder="Enter your full name" class="form-control mb-3">
+            <h5 style="font-size:20px;font-weight:400">Username:<span style="color:red">*</span></h5>
+            <input type="text" ngModel name="userName" id="userName" placeholder="Enter your userName" class="form-control mb-3">
+            <h5 style="font-size:20px;font-weight:400">Email:<span style="color:red">*</span></h5>
+            <input type="email" ngModel name="email" id="email" placeholder="Enter your Email" class="form-control mb-3">
+            <h5 style="font-size:20px;font-weight:400">Phone Number:<span style="color:red">*</span></h5>
+            <input type="number" ngModel name="phoneNumber" id="phoneNumber" placeholder="Enter your phoneNumber" class="form-control mb-3">
+            <h5 style="font-size:20px;font-weight:400">Password:<span style="color:red">*</span></h5>
+            <input type="password" ngModel name="userPassword" id="userPassword" placeholder="Enter your password" class="form-control mb-3">
+            <h5 style="font-size:20px;font-weight:400">Select Your Role :<span style="color:red">*</span></h5>
+            <select ngModel name="userLastName" id="userLastName" class="form-control mb-3" required>
+                <option value="yes" disabled selected>Select your role</option>
+                <option *ngFor="let role of roles" [value]="role.roleName">{{role.roleName}}</option>
+            </select>
+            <input type="submit" value="Signup" class="btn btn-outline-primary form-control rounded-0">
+        </form>
+    </div>
+</div>

@@ -1,0 +1,35 @@
+<div class="mytable">
+    <a href="#" routerLink="/book" class="btn btn-primary" style="float:right;margin:50x;" *ngIf="userService.roleMatch(['Admin'])"><i class="fa  fa-cart-plus" style="font-size: 15px;padding-right: 5px;"></i>Add Book</a>
+   <div class="container" style="float:right;width:15%;margin-bottom: 20px;margin-right: 10px;height: 20px;">
+    <div class="row">
+        <input type="text" name="search" [(ngModel)]="searchText" placeholder="Find Your Books Here...!!" style="padding:10px;float:right;font-size: 15px;border-radius: 20px;background-color: rgba(216, 240, 240, 0.884);color:black;font-weight: 900;border:2px black;padding-left: 15px;"  >
+    </div>
+   </div>
+   
+    <table style="text-align: center;" class="table">
+
+        <thead style="text-align: center;" >
+            <tr class="table-info">
+                <th style="text-align: center;">Book</th>
+                <th style="text-align: center;">ID</th>
+                <th style="text-align: center;">Name</th>
+                <th style="text-align: center;">Rate</th>
+                <th style="text-align: center;">Availability</th>
+                <th style="text-align: center;" colspan="4">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let books of booksList |filter:searchText" style="padding:50px">
+                <td style="text-align: center;"><img [src]="books.bookImage" style="border-radius: 5%;margin:20px" width="100px" height="150px"></td>
+                <td style="text-align: center;">{{books.id+1000}}</td>
+                <td style="text-align: center;">{{books.bookName}}</td>
+                <td style="text-align: center;">{{books.bookRate}}</td>
+                <td style="text-align: center;">{{books.bookAvailable}}</td>
+                <td (click)="deleteBook(books.id)" style="text-align: center;color: red;cursor: pointer;" *ngIf="userService.roleMatch(['Admin'])"><i class="fa fa-trash" style="font-size: 25px;"></i></td>
+                <td (click)="editBook(books.id)" style="text-align: center;color: rgb(0, 0, 255);cursor: pointer;" *ngIf="userService.roleMatch(['Admin'])"><i class="fa fa-edit" style="font-size: 25px;"></i></td>
+                <td (click)="viewBook(books.id)" style="text-align: center;color: rgb(235, 192, 51);cursor: pointer;"><i class="fa fa-eye" style="font-size: 25px;"></i></td>
+                <td (click)="sendRequest(books.id,books)" style="text-align: center;color: rgb(5, 150, 77);cursor: pointer;"><i class="fa fa-share-square-o" aria-hidden="true" style="font-size: 25px;" *ngIf="userService.roleMatch(['User'])"></i></td>
+                <!-- <ng-template #disabled><td style="text-align: center;color: red;cursor: not-allowed;"><i class="fa fa-trash" style="font-size: 25px;" ></i></td></ng-template> -->
+            </tr>
+        </tbody>
+    </table>

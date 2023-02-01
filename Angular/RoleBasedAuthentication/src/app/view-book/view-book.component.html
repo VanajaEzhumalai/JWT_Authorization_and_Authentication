@@ -1,0 +1,22 @@
+<a href="#" routerLink="/books" class="btn btn-primary" style="float:right;margin-right:200px;margin-top: 50px;">Back</a>
+<div class="container mt-5" style="width:30%;margin-top: 200px;">
+   
+    <div class="card" style="padding: 40px;"><h3 style="text-align:center;color:rgb(4, 4, 83);"><u>View Book Details</u></h3>
+
+<div style="padding-left:50px;padding-top: 30px;">
+    <div>
+        <label> <b> BOOK NAME : </b></label> {{book.bookName}}
+    </div>
+    <div>
+        <label> <b> BOOK FRONT VIEW: </b></label> <br>
+        <img src="{{book.bookImage}}" style="border-radius: 10%;margin:10px" width="230px" height="150px" >
+    </div>
+    <div>
+        <label> <b> BOOK COST: </b></label> {{book.bookRate}}
+    </div>
+    <div>
+        <label> <b> BOOK AVAILABILE : </b></label> {{book.bookAvailable}}
+    </div>
+</div>
+</div>
+</div>
